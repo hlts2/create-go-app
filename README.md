@@ -1,5 +1,5 @@
 # create-go-app
-create-go-app is command like [create-react-app](https://github.com/facebook/create-react-app)
+create-go-app is the command like [create-react-app](https://github.com/facebook/create-react-app)
 
 ## Requirement
 Go (>=1.11)
