@@ -42,6 +42,11 @@ func ApplicationTemplates() []Templater {
 		},
 
 		&templaterImpl{
+			path: filepath.Join("config", "config.yaml"),
+			tpl:  mustTmpl("config.yaml", app.ConfigYAMLTmpl),
+		},
+
+		&templaterImpl{
 			path: "main.go",
 			tpl:  mustTmpl("main.go", app.MainTmpl),
 		},

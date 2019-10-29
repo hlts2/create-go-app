@@ -9,6 +9,11 @@ module {{.Mod}}
 
 go 1.12
 `
+
+var ConfigYAMLTmpl = `
+debug: true
+`
+
 var MainTmpl = `
 package main
 
@@ -29,7 +34,7 @@ import (
 )
 
 type params struct {
-	configPath bool
+	configPath string
 }
 
 func parseParams() *params {
@@ -37,7 +42,7 @@ func parseParams() *params {
 
 	pflag.StringVarP(&p.configPath,
 		"config",
-		"c"
+		"c",
 		"config.yaml",
 		"sets configuration file",
 	)
@@ -100,22 +105,36 @@ var ConfigTmpl = `
 package config
 
 import (
+	"os"
+
 	"github.com/pkg/errors"
 	"gopkg.in/go-playground/validator.v9"
+	yaml "gopkg.in/yaml.v2"
 )
 
-type Config struct{}
+type Config struct{
+	Debug string
+}
 
 func Load(path string) (*Config, error) {
-	cfg := new(Config)
+	f, err := os.Open(path)
+	if err != nil {
+		return nil, errors.Wrapf(err, "faild to open configuration file: %v", path)
+	}
+	defer f.Close()
 
-	//TODO: Read configurationg.
+	var cfg Config
+
+	err = yaml.NewDecoder(f).Decode(&cfg)
+	if err != nil {
+		return nil, errors.Wrap(err, "faild to decode")
+	}
 
 	if err := validator.New().Struct(cfg); err != nil {
 		return nil, errors.Wrap(err, "invalid config object")
 	}
 
-	return cfg, nil
+	return &cfg, nil
 }
 `
 
