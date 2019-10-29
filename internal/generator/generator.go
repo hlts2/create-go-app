@@ -77,7 +77,7 @@ func (g *generator) Generate() {
 
 	fmt.Fprintln(g.outW)
 	fmt.Fprintln(g.outW, "Scaffold", aurora.BrightWhite(strcase.ToKebab(g.params.AppName)), "successfully 🎉")
-	fmt.Fprintln(g.outW, aurora.Yellow("▸"), fmt.Sprintf("You can run application with `cd %s; go run main.go` command", g.params.AppName))
+	fmt.Fprintln(g.outW, aurora.Yellow("▸"), fmt.Sprintf("You can run application with `cd %s; go run main.go -c config/config.yaml` command", g.params.AppName))
 }
 
 func (g *generator) generate(path string, t *template.Template, params *Params) error {
