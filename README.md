@@ -44,16 +44,16 @@ Use "create-go-app [command] --help" for more information about a command.
 
 ```shell
 $ create-go-app init golang_sample --mod github.com/user/golang_sample
-   ✔ README.md
-   ✔ go.mod
-   ✔ .envjson.sample
-   ✔ main.go
-   ✔ pkg/config/config.go
-   ✔ pkg/infra/repository/api/repository.go
-   ✔ pkg/infra/repository/db/repository.go
-   ✔ pkg/domain/service/service.go
-   ✔ pkg/domain/model/model.go
-   ✔ pkg/usecase/usecase.go
+✔ README.md
+✔ go.mod
+✔ .envjson.sample
+✔ main.go
+✔ pkg/config/config.go
+✔ pkg/infra/repository/api/repository.go
+✔ pkg/infra/repository/db/repository.go
+✔ pkg/domain/service/service.go
+✔ pkg/domain/model/model.go
+✔ pkg/usecase/usecase.go
 
 Scaffold golang-sample successfully 🎉
 ▸ You can run application with `cd golang_sample; go run main.go` command
