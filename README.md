@@ -46,7 +46,7 @@ Use "create-go-app [command] --help" for more information about a command.
 $ create-go-app init golang_sample --mod github.com/user/golang_sample
 ✔ README.md
 ✔ go.mod
-✔ .envjson.sample
+✔ config/config.yaml
 ✔ main.go
 ✔ pkg/config/config.go
 ✔ pkg/infra/repository/api/repository.go
@@ -56,12 +56,14 @@ $ create-go-app init golang_sample --mod github.com/user/golang_sample
 ✔ pkg/usecase/usecase.go
 
 Scaffold golang-sample successfully 🎉
-▸ You can run application with `cd golang_sample; go run main.go` command
+▸ You can run application with `cd golang_sample; go run main.go -c config/config.yaml` command
 
 $ cd golang_sample
 $ tree .
 .
 ├── README.md
+├── config
+│   └── config.yaml
 ├── go.mod
 ├── main.go
 └── pkg
@@ -81,7 +83,6 @@ $ tree .
     └── usecase
         └── usecase.go
 ```
-
 
 ### TODO
 
